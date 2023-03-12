@@ -1,0 +1,32 @@
+server:
+  port: 8183
+  servlet:
+    context-path: /gateway
+    
+spring:
+  application:
+    name: gateway-service 
+    
+  datasource:
+    
+    url: jdbc:oracle:thin:@localhost:1521:xe
+    username: loan
+    password: rahul123 
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+       # - health
+  endpoint:
+    health:
+      show-details: always   
+  
